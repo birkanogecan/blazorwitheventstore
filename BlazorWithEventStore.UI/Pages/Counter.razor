@@ -1,0 +1,39 @@
+@page "/counter"
+@using EventStore.ClientAPI;
+@using EventStore.ClientAPI.SystemData;
+@using System.Net;
+@using System.Text;
+
+<h1>Eventstore produced data</h1>
+
+<p>Current message:</p>
+<p id="consumedText"></p>
+
+
+@inject IJSRuntime JsRuntime;
+@functions {
+    private string currentMessage = string.Empty;
+
+    protected override async Task OnInitAsync()
+    {
+        var connection = EventStoreConnection.Create(new IPEndPoint(IPAddress.Loopback, 1113));
+        connection.ConnectAsync().Wait();
+        UserCredentials userCredentials = new UserCredentials("admin", "changeit");
+        PersistentSubscriptionSettings settings = PersistentSubscriptionSettings.Create().DoNotResolveLinkTos().StartFromCurrent();
+        var _result = connection.CreatePersistentSubscriptionAsync("test-stream", "agroup", settings, userCredentials);
+        connection.ConnectToPersistentSubscriptionAsync("test-stream", "agroup", EventAppeared, SubscriptionDropped, userCredentials, 10, true);
+    }
+
+    private void SubscriptionDropped(EventStorePersistentSubscriptionBase eventStorePersistentSubscriptionBase,
+    SubscriptionDropReason subscriptionDropReason, Exception ex)
+    {
+
+    }
+    private void EventAppeared(EventStorePersistentSubscriptionBase eventStorePersistentSubscriptionBase,
+ResolvedEvent resolvedEvent)
+    {
+        var data = Encoding.ASCII.GetString(resolvedEvent.Event.Data);
+        JsRuntime.InvokeAsync<string>("changeText", data);
+    }
+
+}

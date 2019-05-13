@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.352
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWithEventStore.UI", "BlazorWithEventStore.UI\BlazorWithEventStore.UI.csproj", "{AE89AA89-75A9-4AF8-AF20-EEB3321B7F19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWithEventStore.Producer", "BlazorWithEventStore.Producer\BlazorWithEventStore.Producer.csproj", "{51C589C2-B538-46D0-BDCF-0E5C818CDE8A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE89AA89-75A9-4AF8-AF20-EEB3321B7F19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE89AA89-75A9-4AF8-AF20-EEB3321B7F19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE89AA89-75A9-4AF8-AF20-EEB3321B7F19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE89AA89-75A9-4AF8-AF20-EEB3321B7F19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51C589C2-B538-46D0-BDCF-0E5C818CDE8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51C589C2-B538-46D0-BDCF-0E5C818CDE8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51C589C2-B538-46D0-BDCF-0E5C818CDE8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51C589C2-B538-46D0-BDCF-0E5C818CDE8A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C71DAC19-7100-4999-BCF8-E0178CBCBCEC}
+	EndGlobalSection
+EndGlobal
